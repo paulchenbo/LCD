@@ -33,6 +33,20 @@ object Form1: TForm1
     Height = 13
     Caption = #20463#20208#65306
   end
+  object lbl3: TLabel
+    Left = 528
+    Top = 168
+    Width = 36
+    Height = 13
+    Caption = #27178#28378#65306
+  end
+  object lbl4: TLabel
+    Left = 528
+    Top = 192
+    Width = 36
+    Height = 13
+    Caption = #20463#20208#65306
+  end
   object scrlbr1: TScrollBar
     Left = 0
     Top = 488
@@ -42,6 +56,7 @@ object Form1: TForm1
     Min = -90
     PageSize = 0
     TabOrder = 0
+    OnChange = scrlbr1Change
   end
   object scrlbr2: TScrollBar
     Left = 488
@@ -53,6 +68,7 @@ object Form1: TForm1
     Min = -90
     PageSize = 0
     TabOrder = 1
+    OnChange = scrlbr2Change
   end
   object Roll: TSpinEdit
     Left = 560
@@ -106,8 +122,37 @@ object Form1: TForm1
     Top = 128
     Width = 75
     Height = 25
-    Caption = #22635#20805
+    Caption = #20840#37096#22635#20805
     TabOrder = 7
     OnClick = btn4Click
+  end
+  object btn5: TButton
+    Left = 704
+    Top = 128
+    Width = 75
+    Height = 25
+    Caption = #37096#20998#22635#20805
+    TabOrder = 8
+    OnClick = btn5Click
+  end
+  object Roll2: TSpinEdit
+    Left = 568
+    Top = 164
+    Width = 121
+    Height = 22
+    MaxValue = 90
+    MinValue = -90
+    TabOrder = 9
+    Value = 0
+  end
+  object Pitch2: TSpinEdit
+    Left = 568
+    Top = 188
+    Width = 121
+    Height = 22
+    MaxValue = 90
+    MinValue = -90
+    TabOrder = 10
+    Value = 0
   end
 end

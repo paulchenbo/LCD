@@ -19,10 +19,18 @@ type
     btn2: TButton;
     btn3: TButton;
     btn4: TButton;
+    btn5: TButton;
+    lbl3: TLabel;
+    lbl4: TLabel;
+    Roll2: TSpinEdit;
+    Pitch2: TSpinEdit;
     procedure btn1Click(Sender: TObject);
     procedure btn2Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
+    procedure btn5Click(Sender: TObject);
+    procedure scrlbr2Change(Sender: TObject);
+    procedure scrlbr1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,18 +51,18 @@ end;
 
 procedure TForm1.btn2Click(Sender: TObject);
 var
-  i,j:Integer ;
+  x,y:Integer ;
 begin
   LCD.Canvas.MoveTo(0,240);
   LCD.Canvas.ClipRect;
   LCD.Canvas.Pen.Color:=clRed;
   LCD.Canvas.LineTo(480,240);
-  for j:=0 to 480-1 do
-    for i:=0 to 480-1 do
-      if j<=240 then
-        LCD.Canvas.Pixels[i,j]:=clBlue
+  for y:=0 to 480-1 do
+    for x:=0 to 480-1 do
+      if y<=240 then
+        LCD.Canvas.Pixels[x,y]:=clBlue
       else
-        LCD.Canvas.Pixels[i,j]:=clGray;
+        LCD.Canvas.Pixels[x,y]:=clGray;
 end;
 
 procedure TForm1.btn3Click(Sender: TObject);
@@ -73,17 +81,70 @@ end;
 
 procedure TForm1.btn4Click(Sender: TObject);
 var
-  i,j:Integer ;
-  Y:integer;
+  x,y:Integer ;
+  Y0:integer;
 begin
-  for j:=0 to 480-1 do
+  for x:=0 to 480-1 do
   begin
-    Y:=Round(tan(Roll.Value*PI/180)*(j-240)+240-sin(Pitch.Value*PI/180)*240);
-    for i:=0 to Y-1 do
-       LCD.Canvas.Pixels[i,j]:=clGray;
-    for i:=Y to 480-1 do
-       LCD.Canvas.Pixels[i,j]:=clBlue;
+    Y0:=Round(tan(Roll.Value*PI/180)*(x-240)+240-sin(Pitch.Value*PI/180)*240);
+    for y:=0 to 480-1 do
+    begin
+      if y<=Y0 then
+         LCD.Canvas.Pixels[x,y]:=clBlue
+      else
+        LCD.Canvas.Pixels[x,y]:=clGray;
+    end;
   end;
+end;
+
+procedure TForm1.btn5Click(Sender: TObject);
+var
+  x,y:Integer ;
+begin
+  if Roll.Value>0 then
+  begin
+    for x:=0 to 240-1 do
+    begin
+      for y:=Round(tan(Roll.Value*PI/180)*(x-240)+240-sin(Pitch.Value*PI/180)*240) to 240  do
+      begin
+        LCD.Canvas.Pixels[x,y]:=clGray
+      end;
+    end;
+    for x:=240 to 480-1 do
+    begin
+      for y:=240 to Round(tan(Roll.Value*PI/180)*(x-240)+240-sin(Pitch.Value*PI/180)*240) do
+      begin
+        LCD.Canvas.Pixels[x,y]:=clBlue
+      end;
+    end;
+    end
+  else
+  begin
+    for x:=0 to 240-1 do
+      begin
+        for y:= 240 to Round(tan(Roll.Value*PI/180)*(x-240)+240-sin(Pitch.Value*PI/180)*240)  do
+        begin
+          LCD.Canvas.Pixels[x,y]:=clBlue
+        end;
+      end;
+      for x:=240 to 480-1 do
+      begin
+        for y:=Round(tan(Roll.Value*PI/180)*(x-240)+240-sin(Pitch.Value*PI/180)*240) to 240 do
+        begin
+          LCD.Canvas.Pixels[x,y]:=clGray
+        end;
+      end;
+    end;
+end;
+
+procedure TForm1.scrlbr2Change(Sender: TObject);
+begin
+  Roll.Value:=scrlbr2.Position;
+end;
+
+procedure TForm1.scrlbr1Change(Sender: TObject);
+begin
+  Pitch.Value:=scrlbr1.Position;
 end;
 
 end.
