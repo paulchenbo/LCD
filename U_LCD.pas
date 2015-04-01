@@ -236,18 +236,20 @@ begin
       begin
         for y1:=Round(tan(Roll2.Value*PI/180)*(x1-x0)+y0-sin(Pitch2.Value*PI/180)*y0) to Round(tan(Roll.Value*PI/180)*(x1-x0)+y0-sin(Pitch.Value*PI/180)*y0)  do
         begin
-          LCD.Canvas.Pixels[x1,y1]:=clBlue
+          LCD.Canvas.Pixels[x1,y1]:=clGray
         end;
       end;
       for x1:=cross[1] to x-1 do
       begin
         for y1:=Round(tan(Roll.Value*PI/180)*(x1-x0)+y0-sin(Pitch.Value*PI/180)*y0) to Round(tan(Roll2.Value*PI/180)*(x1-x0)+y0-sin(Pitch2.Value*PI/180)*y0) do
         begin
-          LCD.Canvas.Pixels[x1,y1]:=clGray
+          LCD.Canvas.Pixels[x1,y1]:=clBlue
         end;
       end;
     end;
   end;
+  Roll.Value:=Roll2.Value;
+  Pitch.Value:=Pitch2.Value;
 end;
 
 end.
