@@ -35,17 +35,29 @@ object Form1: TForm1
   end
   object lbl3: TLabel
     Left = 528
-    Top = 168
+    Top = 136
     Width = 36
     Height = 13
     Caption = #27178#28378#65306
   end
   object lbl4: TLabel
     Left = 528
-    Top = 192
+    Top = 160
     Width = 36
     Height = 13
     Caption = #20463#20208#65306
+  end
+  object lbl5: TLabel
+    Left = 704
+    Top = 168
+    Width = 3
+    Height = 13
+  end
+  object lbl6: TLabel
+    Left = 776
+    Top = 168
+    Width = 3
+    Height = 13
   end
   object scrlbr1: TScrollBar
     Left = 0
@@ -92,7 +104,7 @@ object Form1: TForm1
   end
   object btn1: TButton
     Left = 528
-    Top = 88
+    Top = 56
     Width = 75
     Height = 25
     Caption = #28165#23631
@@ -101,7 +113,7 @@ object Form1: TForm1
   end
   object btn2: TButton
     Left = 616
-    Top = 88
+    Top = 56
     Width = 113
     Height = 25
     Caption = #21021#22987#21270#22352#26631#31995
@@ -110,7 +122,7 @@ object Form1: TForm1
   end
   object btn3: TButton
     Left = 528
-    Top = 128
+    Top = 96
     Width = 75
     Height = 25
     Caption = #20998#30028#32447
@@ -119,7 +131,7 @@ object Form1: TForm1
   end
   object btn4: TButton
     Left = 616
-    Top = 128
+    Top = 96
     Width = 75
     Height = 25
     Caption = #20840#37096#22635#20805
@@ -128,7 +140,7 @@ object Form1: TForm1
   end
   object btn5: TButton
     Left = 704
-    Top = 128
+    Top = 96
     Width = 75
     Height = 25
     Caption = #37096#20998#22635#20805
@@ -137,7 +149,7 @@ object Form1: TForm1
   end
   object Roll2: TSpinEdit
     Left = 568
-    Top = 164
+    Top = 132
     Width = 121
     Height = 22
     MaxValue = 90
@@ -147,12 +159,38 @@ object Form1: TForm1
   end
   object Pitch2: TSpinEdit
     Left = 568
-    Top = 188
+    Top = 156
     Width = 121
     Height = 22
     MaxValue = 90
     MinValue = -90
     TabOrder = 10
     Value = 0
+  end
+  object btn6: TButton
+    Left = 696
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = #27714#20132#28857
+    TabOrder = 11
+    OnClick = btn6Click
+  end
+  object lst: TListBox
+    Left = 512
+    Top = 424
+    Width = 345
+    Height = 97
+    ItemHeight = 13
+    TabOrder = 12
+  end
+  object btn7: TButton
+    Left = 776
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = #37096#20998#22635#20805'2'
+    TabOrder = 13
+    OnClick = btn7Click
   end
 end
